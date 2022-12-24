@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انبار داری</title>
+    <link rel="stylesheet" href="./tailwind.css">
+</head>
+<body>
+    <div class="h-screen bg-slate-800 text-slate-400 px-2">
+        <!-- Navbar Header -->
+        <div class="bg-slate-700 py-3">
+            <h1 class="text-center">انبارداری - برنامه نویسی شی گرا - با استفاده از Javascript و  Tailwindcss</h1>
+        </div>
+        <div class="container max-w-screen-sm m-auto">
+            <section class="my-5">
+                <h2 class="mb-2">افزودن دسته بندی جدید</h2>
+                <div class="bg-slate-700 rounded-md p-4">
+                    <form>
+                        <div class="flex flex-col mb-4">
+                            <label for="title" class="mb-1">عنوان</label>
+                            <input type="text" id="title" name="title" class="w-2/4 outline-none rounded-md bg-transparent" placeholder="عنوان را وارد نمایید"/>
+                        </div>
+                        <div class="flex flex-col mb-4">
+                            <label for="description" class="mb-1">شرح</label>
+                            <textarea name="description" id="description" cols="30" rows="2" class="w-full resize-none outline-none rounded-md bg-transparent"></textarea>
+                        </div>
+                        <div class="flex justify-center items-center gap-4">
+                            <button type="submit" class="flex-1 py-2 bg-slate-400 text-slate-900 rounded-md">افزودن دسته بندی جدید</button>
+                            <button class="flex-1 py-2 rounded-md border border-slate-500">لغو</button>
+                        </div>                        
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
