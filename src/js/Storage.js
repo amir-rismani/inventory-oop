@@ -1,17 +1,3 @@
-categories = [
-    {
-        id: 1,
-        title: 'فرانت اند',
-        description: 'برنامه نویسی فرانت اند',
-        create_date: '2023-01-01T07:21:16.982Z'
-    },
-    {
-        id: 2,
-        title: 'بک اند',
-        description: 'برنامه نویسی بک اند',
-        create_date: '2022-01-01T07:21:16.982Z'
-    }
-]
 export default class Storage {
     //=============== Categories
     // Get All Categories
@@ -19,7 +5,7 @@ export default class Storage {
     // =========================
     static getAllCategories() {
         const categories = JSON.parse(localStorage.getItem('categories')) || [];
-        const sortedCategories = categories.sort((a, b) => (new Date(a.create_date) > new Date(b.create_date) ? -1 : 1))
+        const sortedCategories = categories.sort((a, b) => (new Date(a.createDate) > new Date(b.createDate) ? -1 : 1))
         return sortedCategories
     }
 
@@ -30,12 +16,12 @@ export default class Storage {
             // Edit Item
             findedCategory.title = categoryItem.title;
             findedCategory.description = categoryItem.description;
-            findedProduct.update_date = new Date().toISOString;
+            findedProduct.update_date = new Date().toISOString();
         }
         else {
             // Save Item
             categoryItem.id = new Date().getTime();
-            categoryItem.create_date = new Date().toISOString;
+            categoryItem.createDate = new Date().toISOString();
             categories.push(categoryItem);
         }
         localStorage.setItem('categories', JSON.stringify(categories));
@@ -47,7 +33,7 @@ export default class Storage {
     // =========================
     static getAllProducts() {
         const products = JSON.parse(localStorage.getItem('products')) || [];
-        const sortedProducts = products.sort((a, b) => (new Date(a.create_date) > new Date(b.create_date) ? -1 : 1));
+        const sortedProducts = products.sort((a, b) => (new Date(a.createDate) > new Date(b.createDate) ? -1 : 1));
         return sortedProducts
     }
 
@@ -59,11 +45,11 @@ export default class Storage {
             findedProduct.title = productItem.title;
             findedProduct.description = productItem.description;
             findedProduct.quantity = productItem.description;
-            findedProduct.update_date = new Date().toISOString;
+            findedProduct.update_date = new Date().toISOString();
         } else {
             // Save Item
             productItem.id = new Date().getTime();
-            productItem.create_date = new Date().toISOString;
+            productItem.createDate = new Date().toISOString();
             products.push(productItem);
         }
         localStorage.setItem('products', JSON.stringify(products));
