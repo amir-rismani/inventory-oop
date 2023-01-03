@@ -52,7 +52,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="flex-1 py-2 bg-slate-400 text-slate-900 rounded-md">افزودن محصول جدید</button>
+                    <button id="add-new-product" type="submit" class="flex-1 py-2 bg-slate-400 text-slate-900 rounded-md">افزودن محصول جدید</button>
                 </form>
             </section>
 
@@ -73,37 +73,7 @@
                         <input type="text" name="search" id="search" class="flex-1 mr-2 outline-none rounded-md bg-transparent" placeholder="عبارات مورد جستجو را وارد نمایید">
                     </div>
                 </div>
-                <div class="flex flex-col gap-y-3 my-5">
-                    <div class="flex justify-between items-center">
-                        <span class="text-white">نام محصول</span>
-                        <span class="flex justify-center items-center gap-x-2 text-sm">
-                            <span>۱۴۰۱/۰۹/۱۶</span>
-                            <span class="border border-slate-500 rounded-full px-2 text-slate-500">نام دسته بندی</span>
-                            <span class="h-5 w-5 flex justify-center items-center bg-slate-300 text-slate-900 rounded-full">۸</span>
-                            <span class="text-red-500 cursor-pointer">حذف</span>
-                        </span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <span class="text-white">نام محصول</span>
-                        <span class="flex justify-center items-center gap-x-2 text-sm">
-                            <span>۱۴۰۱/۰۹/۱۶</span>
-                            <span class="border border-slate-500 rounded-full px-2 text-slate-500">نام دسته بندی</span>
-                            <span class="h-5 w-5 flex justify-center items-center bg-slate-300 text-slate-900 rounded-full">۸</span>
-                            <span class="text-red-500 cursor-pointer">حذف</span>
-                        </span>
-                    </div>
-
-                    <div class="flex justify-between items-center">
-                        <span class="text-white">نام محصول</span>
-                        <span class="flex justify-center items-center gap-x-2 text-sm">
-                            <span>۱۴۰۱/۰۹/۱۶</span>
-                            <span class="border border-slate-500 rounded-full px-2 text-slate-500">نام دسته بندی</span>
-                            <span class="h-5 w-5 flex justify-center items-center bg-slate-300 text-slate-900 rounded-full">۸</span>
-                            <span class="text-red-500 cursor-pointer">حذف</span>
-                        </span>
-                    </div>
-
+                <div id="product-items" class="flex flex-col gap-y-3 my-5">
                 </div>
             </section>
         </div>

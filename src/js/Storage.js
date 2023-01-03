@@ -16,7 +16,7 @@ export default class Storage {
             // Edit Item
             findedCategory.title = categoryItem.title;
             findedCategory.description = categoryItem.description;
-            findedProduct.update_date = new Date().toISOString();
+            findedProduct.updateDate = new Date().toISOString();
         }
         else {
             // Save Item
@@ -39,13 +39,13 @@ export default class Storage {
 
     static saveProduct(productItem) {
         const products = this.getAllProducts();
-        findedProduct = products.find(product => product.id === productItem.id);
+        const findedProduct = products.find(product => product.id === productItem.id);
         if (findedProduct) {
             // Edit Item
             findedProduct.title = productItem.title;
-            findedProduct.description = productItem.description;
             findedProduct.quantity = productItem.description;
-            findedProduct.update_date = new Date().toISOString();
+            findedProduct.productCategory = productItem.productCategory;
+            findedProduct.updateDate = new Date().toISOString();
         } else {
             // Save Item
             productItem.id = new Date().getTime();

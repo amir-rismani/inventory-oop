@@ -1,5 +1,5 @@
 import Storage from "./Storage.js";
-
+import Utils from "./Utils.js";
 const titleInput = document.querySelector('#category-title');
 const descriptionInput = document.querySelector('#category-description');
 const addNewCategoryButton = document.querySelector('#add-new-category');
@@ -13,21 +13,23 @@ class CategoryView {
 
     addNewCategory(event) {
         event.preventDefault();
+        const categoryButtonsContainer = document.querySelector('#category-buttons');
         const title = titleInput.value;
         const description = descriptionInput.value;
+
         if (!title || !description) {
-            this.displayMessage("ورود عنوان و شرح دسته بندی ضروری است.", "error");
+            Utils.displayMessage("ورود عنوان و شرح دسته بندی ضروری است.", categoryButtonsContainer, "error");
             return
         }
         Storage.saveCategory({ title, description });
-        this.clearInputs();
-        this.displayMessage("دسته بندی جدید ایجاد شد.");
+        Utils.clearInputs(categoryButtonsContainer.closest('form'));
+        Utils.displayMessage("دسته بندی جدید ایجاد شد.", categoryButtonsContainer);
         this.setCategories();
-        this.updateCategoryList();
     }
 
     setCategories() {
         this.categories = Storage.getAllCategories();
+        this.updateCategoryList();
     }
 
     updateCategoryList() {
@@ -39,20 +41,9 @@ class CategoryView {
         productCategorySelector.innerHTML = options;
     }
 
-    clearInputs() {
-        titleInput.value = "";
-        descriptionInput.value = "";
-    }
-
-    displayMessage(message, type = 'success') {
-        const messageElement = document.querySelector('.alert-message');
-        if (messageElement) messageElement.remove();
-
-        const categoryButtonsContainer = document.querySelector('#category-buttons');
-        const paragraph = document.createElement('p');
-        paragraph.textContent = message;
-        paragraph.classList.add('alert-message', type === 'error' ? 'text-red-500' : 'text-green-500');
-        categoryButtonsContainer.parentNode.insertBefore(paragraph, categoryButtonsContainer);
+    getCategoryName(id) {
+        const findedCategory = this.categories.find(category => category.id == id);
+        return findedCategory.title
     }
 }
 
