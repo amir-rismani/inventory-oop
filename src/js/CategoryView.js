@@ -4,10 +4,14 @@ const titleInput = document.querySelector('#category-title');
 const descriptionInput = document.querySelector('#category-description');
 const addNewCategoryButton = document.querySelector('#add-new-category');
 const closeCategorySectionButton = document.querySelector('#close-category-section');
+const showCategorySectionButton = document.querySelector('#show-category-section');
+const categorySection = document.querySelector('#category-section');
 
 class CategoryView {
     constructor() {
+        showCategorySectionButton.addEventListener('click', this.categorySectionToggler);
         addNewCategoryButton.addEventListener('click', (event) => this.addNewCategory(event));
+        closeCategorySectionButton.addEventListener('click', this.categorySectionToggler);
         this.categories = [];
     }
 
@@ -25,6 +29,7 @@ class CategoryView {
         Utils.clearInputs(categoryButtonsContainer.closest('form'));
         Utils.displayMessage("دسته بندی جدید ایجاد شد.", categoryButtonsContainer);
         this.setCategories();
+        this.categorySectionToggler();
     }
 
     setCategories() {
@@ -44,6 +49,11 @@ class CategoryView {
     getCategoryName(id) {
         const findedCategory = this.categories.find(category => category.id == id);
         return findedCategory.title
+    }
+
+    categorySectionToggler() {
+        showCategorySectionButton.classList.toggle('hidden');
+        categorySection.classList.toggle('hidden');
     }
 }
 

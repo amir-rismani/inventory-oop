@@ -39,11 +39,11 @@ export default class Storage {
 
     static saveProduct(productItem) {
         const products = this.getAllProducts();
-        const findedProduct = products.find(product => product.id === productItem.id);
+        const findedProduct = products.find(product => product.id === parseInt(productItem.id));
         if (findedProduct) {
             // Edit Item
             findedProduct.title = productItem.title;
-            findedProduct.quantity = productItem.description;
+            findedProduct.quantity = productItem.quantity;
             findedProduct.productCategory = productItem.productCategory;
             findedProduct.updateDate = new Date().toISOString();
         } else {
@@ -53,5 +53,11 @@ export default class Storage {
             products.push(productItem);
         }
         localStorage.setItem('products', JSON.stringify(products));
+    }
+
+    static removeProduct(productId) {
+        const products = this.getAllProducts();
+        const filterdProducts = products.filter(product => product.id !== parseInt(productId));
+        localStorage.setItem('products', JSON.stringify(filterdProducts));
     }
 }
